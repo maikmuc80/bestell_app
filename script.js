@@ -89,3 +89,9 @@ const menu = [
     amount: 0
   }
 ];
+
+
+function init(){
+
+}
+

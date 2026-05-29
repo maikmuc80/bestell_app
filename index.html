@@ -4,19 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bestell App</title>
-<body>
+    <link rel="stylesheet" href="style.css">
+<body onload="init()">
     <header>
-        <div class="navbar"></div>
-        <div class="header_picture"></div>
-        <div class="header_hamburger"></div>
+        <nav>
+            <img class="logo" src="./assets/icon/logo.png" alt="">
+            <img class="menu" src="./assets/icon/menu.png" alt="">
+        </nav>
     </header>
     <main>
         <section class="headline"><h1>BurgerHause</h1></section>
         <section class="products">
-            <article>
-                <h2></h2>
-            </article>
+            <div class="category">
+                <div class="category_heading">
+                    <img src="./assets/icon/burger.png" alt="">
+                    <h2>Überschrift Category</h2>
+                </div>
+                
+                <article class="article">
+                    <div>
+                        <img class="article_picture" src="./assets/img/All meat burger.jpg" alt="">
+                    </div>
+
+                    <div class="article_description_price">
+                        <div>
+                            <h3>product name</h3>
+                            <p>description</p>
+                        </div>
+                        <div class="price_basket">
+                            <p>price</p>
+                            <button>add to basket</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="basket_place"></div>
         </section>
+        <section class="basket"></section>
     </main>
     <footer></footer>
     <script src="./script.js"></script>
