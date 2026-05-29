@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+:root{
+    --orange: rgba(231, 108, 31, 1);
+    --product_background: rgba(253, 234, 220, 1);
+    --product_color: rgba(54, 53, 52, 1);
+    --product_add_background: rgba(255, 255, 255, 1);
+    --basket_background: rgba(54, 53, 52, 1);
+}
+
