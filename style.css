@@ -1,9 +1,55 @@
+/* fonts */
+/* palanquin-dark-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Palanquin Dark';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/palanquin-dark-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-dark-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Palanquin Dark';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/palanquin-dark-v17-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Palanquin';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/palanquin-v17-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Palanquin';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/palanquin-v17-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* palanquin-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Palanquin';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/palanquin-v17-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fonts */
+
+/* standart */
 *{
     margin: 0;
     scroll-behavior: smooth;
     box-sizing: border-box;
 }
+/* standart */
 
+/* colors */
 :root{
     --orange: rgba(231, 108, 31, 1);
     --product_background: rgba(253, 234, 220, 1);
@@ -11,4 +57,5 @@
     --product_add_background: rgba(255, 255, 255, 1);
     --basket_background: rgba(54, 53, 52, 1);
 }
+/* colors */
 
