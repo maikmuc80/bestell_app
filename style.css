@@ -57,8 +57,17 @@
     --product_color: rgba(54, 53, 52, 1);
     --product_add_background: rgba(255, 255, 255, 1);
     --basket_background: rgba(54, 53, 52, 1);
+    --category_color: rgba(255, 255, 255, 1);
+    --article_color: rgba(54, 53, 52, 1);
+
+    --font_category: 'Palanquin';
+    --font_h1: 'Palanquin Dark';
 }
 /* colors */
+main{
+    display: flex;
+    flex-direction: column;
+}
 
 body{
     display: flex;
@@ -85,15 +94,25 @@ nav{
     padding-right: 8px;
 }
 
-
-.article_picture {
-    width: 200px;
-    height: 120px;
-    border-radius: 12px;
-}
-main{
+.headline{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.headline_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.headline h1{
+    font-family: var(--font_h1);
+    font-size: 48px;
+    font-weight: 700;
 }
 
 .products{
@@ -102,16 +121,17 @@ main{
     justify-content: space-between;
     align-items: center;
     width: 715px;
-    border: 1px solid;
     margin-left: 119px;
-    
+    padding: 30px 0;
 }
+
 .category{
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 15px;
 }
+
 .category_heading{
     display: flex;
     flex-direction: row;
@@ -125,9 +145,17 @@ main{
     margin: 15px 0 15px 0;
 }
 
+.category_heading h2{
+    padding-left: 20px;
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--font_category);
+    color: var(--category_color);
+}
+
 .category_heading img{
     padding-left: 50px;
-    height: 90px;
+    height: 91px;
 }
 
 .article{
@@ -137,6 +165,7 @@ main{
     border-radius: 12px;
     gap: 15px;
     padding: 8px;
+    color: var(--article_color);
 }
 
 .article_description_price{
@@ -146,9 +175,27 @@ main{
     padding-bottom: 8px;
 }
 
+.article_description_price h3{
+    font-family: var(--font_category);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.article_description_price p{
+    font-family: var(--font_category);
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .price_basket{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+}
+
+.article_picture {
+    width: 200px;
+    height: 120px;
+    border-radius: 12px;
 }
