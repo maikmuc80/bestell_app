@@ -119,16 +119,15 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    width: 715px;
-    margin-left: 119px;
-    padding: 30px 0;
+    align-items: flex-start;
 }
 
 .category{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 715px;
+    margin-left: 119px;
+    padding: 30px 0;
     gap: 15px;
 }
 
@@ -192,10 +191,91 @@ nav{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    color: var(--category_color);
 }
 
 .article_picture {
     width: 200px;
     height: 120px;
     border-radius: 12px;
+}
+
+.basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 435px;
+    position: sticky;
+    color: var(--category_color);
+    border-radius: 15px 0px 0px 15px;
+
+    background-color: var(--basket_background);  
+    padding: 59px 30px 59px 20px; 
+
+    font-family: 'Palanquin';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.basket h2 {
+    font-family: 'Palanquin';
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.article_basket {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--product_background);
+    color: var(--product_color);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 15px;
+}
+
+.article_basket_description{
+    display: flex;
+    flex-direction: column;
+}
+
+.article_basket_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.basket_subtotal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.basket_delivery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.basket-row {
+  border: 2px solid #ffffff;
+  width: 100%;
+}
+
+.basket_total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.basket_button {
+    background-color: var(--orange);
+    color: var(--category_color);
+    width: 320px;
+    height: 64px;
+    border-radius: 20px;
 }
