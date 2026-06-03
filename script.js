@@ -170,7 +170,7 @@ function templateArticle(item, index) {
                 <img class="article_picture" src="${item.image}" alt="${item.name}">
             </div>
             <div class="article_description_price">
-                <div>
+                <div class="article_name">
                     <h3>${item.name}</h3>
                     <p>${item.description}</p>
                 </div>
