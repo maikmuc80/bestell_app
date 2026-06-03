@@ -67,6 +67,7 @@
 main{
     display: flex;
     flex-direction: column;
+    padding-top: 100px;
 }
 
 body{
@@ -87,6 +88,13 @@ nav{
     justify-content: space-between;
     height: 130px;
     background-color: var(--orange);
+}
+
+button {
+    background-color: var(--orange);
+    color: var(--category_color);
+    border-radius: 20px;
+    border: 0;
 }
 
 .logo{
@@ -217,8 +225,9 @@ nav{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    color: var(--category_color);
+    align-items: center;
+    color: var(--product_color);
+    width: 100px;
 }
 
 .article_picture {
@@ -227,15 +236,18 @@ nav{
     border-radius: 12px;
 }
 
-.basket {
+.aside_basket {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     width: 435px;
     position: sticky;
+    top: 0;
+    right: 0;
     color: var(--category_color);
     border-radius: 15px 0px 0px 15px;
+    margin-top: 45px;
 
     background-color: var(--basket_background);  
     padding: 59px 30px 59px 20px; 
@@ -245,7 +257,15 @@ nav{
     font-weight: 600;
 }
 
-.basket h2 {
+.basket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.basket_headline {
     font-family: 'Palanquin';
     font-size: 32px;
     font-weight: 700;
@@ -321,4 +341,23 @@ footer {
     font-family: var(--font_category);
     font-weight: 400;
     font-size: 18px;
+}
+.order_message {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--orange);
+    color: var(--category_color);
+    padding: 20px 40px;
+    border-radius: 20px;
+    font-family: var(--font_category);
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.order_message.show {
+    opacity: 1;
 }
