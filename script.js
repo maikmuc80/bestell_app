@@ -6,7 +6,7 @@ const menu = [
     name: "Veggie mushroom black burger",
     description: "Mixed green salad, Tomatoes, Edamame, Mushrooms",
     price: 16.90,
-    amount: 0
+    amount: 1
   },
   {
     category: "Burger & Sandwiches",
@@ -114,6 +114,7 @@ const basketRef = document.getElementById('basket');
 
 function init(){
   renderCategory();
+  renderBasket();
 }
 
 function renderCategory() {
@@ -161,11 +162,24 @@ function templateArticle(item, index) {
                 </div>
                 <div class="price_basket">
                     <p>${price} €</p>
-                    <button onclick="addToBasket(${index})">add to basket</button>
+                    ${templateArticleControl(item, index)}
                 </div>
             </div>
         </article>
     `;
+}
+
+function templateArticleControl(item, index) {
+    if (item.amount > 0) {
+        return `
+            <div>
+                <button onclick="decrease(${index})">-</button>
+                ${item.amount}
+                <button onclick="increase(${index})">+</button>
+            </div>
+        `;
+    }
+    return `<button onclick="addToBasket(${index})">add to basket</button>`;
 }
 
 function renderBasket() {
@@ -197,4 +211,29 @@ function templateBasketArticle(item, index) {
             </div>
         </article>
     `;
+}
+
+function increase(index) {
+    menu[index].amount++;
+    renderCategory();
+    renderBasket();
+}
+
+function decrease(index) {
+    if (menu[index].amount > 0) {
+        menu[index].amount--;
+    }
+    renderCategory();
+    renderBasket();
+}
+
+function deleteItem(index) {
+    menu[index].amount = 0;
+    renderBasket();
+}
+
+function addToBasket(index) {
+    menu[index].amount++;
+    renderCategory();
+    renderBasket();
 }
