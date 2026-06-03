@@ -95,6 +95,7 @@ button {
     color: var(--category_color);
     border-radius: 20px;
     border: 0;
+    padding: 10px;
 }
 
 .logo{
@@ -207,6 +208,10 @@ button {
     justify-content:space-between;
     width: 469px;
     padding-bottom: 8px;
+}
+
+.article_name {
+    width: 400px;
 }
 
 .article_description_price h3{
