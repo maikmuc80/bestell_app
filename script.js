@@ -111,10 +111,24 @@ const categoryIcons = {
 };
 
 const basketRef = document.getElementById('basket');
+const DELIVERY_FEE = 4.99;
 
 function init(){
   renderCategory();
   renderBasket();
+}
+
+function order() {
+    for (let index = 0; index < menu.length; index++) {
+        menu[index].amount = 0;
+    }
+    renderCategory();
+    renderBasket();
+    showOrderMessage();
+}
+
+function formatPrice(value) {
+    return value.toFixed(2).replace('.', ',') + '€';
 }
 
 function renderCategory() {
@@ -183,23 +197,33 @@ function templateArticleControl(item, index) {
 }
 
 function renderBasket() {
-    let html = '';
+    let articlesHtml = '';
+    let subtotal = 0;
     for (let index = 0; index < menu.length; index++) {
         const item = menu[index];
         if (item.amount > 0) {
-            html += templateBasketArticle(item, index);
+            subtotal += item.price * item.amount;
+            articlesHtml += templateBasketArticle(item, index);
         }
     }
-    basketRef.innerHTML = html;
+    if (subtotal === 0) {
+        basketRef.innerHTML = templateBasketEmpty();
+        return;
+    }
+    basketRef.innerHTML = articlesHtml + templateBasketSummary(subtotal);
+}
+
+function templateBasketEmpty() {
+    return `<p class="basket_empty">Your basket is empty.</p>`;
 }
 
 function templateBasketArticle(item, index) {
-    const lineTotal = (item.price * item.amount).toFixed(2).replace('.', ',');
+    const lineTotal = item.price * item.amount;
     return `
         <article class="article_basket">
             <div class="article_basket_description">
                 <h3>${item.name}</h3>
-                <button onclick="deleteItem(${index})">remove</button>
+                <button onclick="deleteItem(${index})"><img src="./assets/icon/delete.png" alt=""></button>
             </div>
             <div class="article_basket_price">
                 <div>
@@ -207,9 +231,29 @@ function templateBasketArticle(item, index) {
                     ${item.amount}
                     <button onclick="increase(${index})">+</button>
                 </div>
-                <div>${lineTotal} €</div>
+                <div>${formatPrice(lineTotal)}</div>
             </div>
         </article>
+    `;
+}
+
+function templateBasketSummary(subtotal) {
+    const total = subtotal + DELIVERY_FEE;
+    return `
+        <div class="basket_subtotal">
+            <p>Subtotal</p>
+            <p>${formatPrice(subtotal)}</p>
+        </div>
+        <div class="basket_delivery">
+            <p>Delivery fee</p>
+            <p>${formatPrice(DELIVERY_FEE)}</p>
+        </div>
+        <div class="basket-row"></div>
+        <div class="basket_total">
+            <p>Total</p>
+            <p>${formatPrice(total)}</p>
+        </div>
+        <button class="basket_button" onclick="order()">Buy now (${formatPrice(total)})</button>
     `;
 }
 
@@ -236,4 +280,10 @@ function addToBasket(index) {
     menu[index].amount++;
     renderCategory();
     renderBasket();
+}
+
+function showOrderMessage() {
+    const messageRef = document.getElementById('orderMessage');
+    messageRef.classList.add('show');
+    setTimeout(() => messageRef.classList.remove('show'), 3000);
 }
