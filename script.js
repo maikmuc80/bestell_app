@@ -102,24 +102,67 @@ const menu = [
   }
 ];
 
+const categoryRef = document.getElementById('category');
+
+const categoryIcons = {
+    "Burger & Sandwiches": "./assets/icon/burger.png",
+    "Pizza": "./assets/icon/pizza.png",
+    "Salad": "./assets/icon/salad.png"
+};
 
 function init(){
-
+  renderCategory();
 }
 
 function renderCategory() {
-
-
+    const categories = [...new Set(menu.map(item => item.category))];
+    let html = '';
+    for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+        html += templateCategory(category, renderArticle(category));
+    }
+    categoryRef.innerHTML = html;
 }
 
-function renderArticle() {
-    
+function renderArticle(category) {
+    let html = '';
+    for (let index = 0; index < menu.length; index++) {
+        const item = menu[index];
+        if (item.category === category) {
+            html += templateArticle(item, index);
+        }
+    }
+    return html;
 }
 
-function templateCategory() {
-
+function templateCategory(category, articlesHtml) {
+    return `
+        <div class="category_heading">
+            <img src="${categoryIcons[category]}" alt="${category}">
+            <h2>${category}</h2>
+        </div>
+        ${articlesHtml}
+    `;
 }
 
-function templateArticle() {
-
+function templateArticle(item, index) {
+    const price = item.price.toFixed(2).replace('.', ',');
+    return `
+        <article class="article">
+            <div>
+                <img class="article_picture" src="${item.image}" alt="${item.name}">
+            </div>
+            <div class="article_description_price">
+                <div>
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                </div>
+                <div class="price_basket">
+                    <p>${price} €</p>
+                    <button onclick="addToBasket(${index})">add to basket</button>
+                </div>
+            </div>
+        </article>
+    `;
 }
+
