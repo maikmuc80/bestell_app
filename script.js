@@ -110,6 +110,8 @@ const categoryIcons = {
     "Salad": "./assets/icon/salad.png"
 };
 
+const basketRef = document.getElementById('basket');
+
 function init(){
   renderCategory();
 }
@@ -166,3 +168,33 @@ function templateArticle(item, index) {
     `;
 }
 
+function renderBasket() {
+    let html = '';
+    for (let index = 0; index < menu.length; index++) {
+        const item = menu[index];
+        if (item.amount > 0) {
+            html += templateBasketArticle(item, index);
+        }
+    }
+    basketRef.innerHTML = html;
+}
+
+function templateBasketArticle(item, index) {
+    const lineTotal = (item.price * item.amount).toFixed(2).replace('.', ',');
+    return `
+        <article class="article_basket">
+            <div class="article_basket_description">
+                <h3>${item.name}</h3>
+                <button onclick="deleteItem(${index})">remove</button>
+            </div>
+            <div class="article_basket_price">
+                <div>
+                    <button onclick="decrease(${index})">-</button>
+                    ${item.amount}
+                    <button onclick="increase(${index})">+</button>
+                </div>
+                <div>${lineTotal} €</div>
+            </div>
+        </article>
+    `;
+}
