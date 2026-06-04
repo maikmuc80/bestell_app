@@ -166,7 +166,7 @@ function templateArticle(item, index) {
     const price = item.price.toFixed(2).replace('.', ',');
     return `
         <article class="article">
-            <div>
+            <div class="article_item">
                 <img class="article_picture" src="${item.image}" alt="${item.name}">
             </div>
             <div class="article_description_price">
@@ -273,6 +273,7 @@ function decrease(index) {
 
 function deleteItem(index) {
     menu[index].amount = 0;
+    renderCategory();
     renderBasket();
 }
 
@@ -287,3 +288,4 @@ function showOrderMessage() {
     messageRef.classList.add('show');
     setTimeout(() => messageRef.classList.remove('show'), 3000);
 }
+
