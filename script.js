@@ -227,6 +227,7 @@ function templateBasketArticle(item, index) {
                 </div>
                 <p>${formatPrice(lineTotal)}</p>
             </div>
+            <button onclick="deleteItem(${index})">🗑</button>
         </div>
     `;
 }

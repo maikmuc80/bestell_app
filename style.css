@@ -257,6 +257,8 @@ button {
     color: var(--category_color);
     border-radius: 15px 0px 0px 15px;
     margin-top: 45px;
+    max-height: 900px;
+    overflow-y: auto;
 
     background-color: var(--basket_background);  
     padding: 59px 30px 59px 20px; 
