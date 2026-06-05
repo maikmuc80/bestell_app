@@ -144,7 +144,11 @@ button {
     justify-content: center;
     align-items: center;
 }
-
+.headline_item p {
+    font-family: 'Palanquin';
+    font-weight: 700;
+    font-size: 22px;
+}
 .headline h1 {
     font-family: var(--font_h1);
     font-size: 48px;
@@ -336,6 +340,7 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
     justify-content: center;
     gap: 30px;
 
@@ -367,6 +372,8 @@ footer {
     opacity: 1;
 }
 
+
+
 @media (max-width: 1400px) {
     .aside_basket {
         display: none;
@@ -382,7 +389,7 @@ footer {
 
 @media (max-width: 840px) {
     body {
-        padding: 0px max(calc(50% - 720px), 8px);
+        padding: 0px max(calc(50% - 720px), 0px);
     }
 
     .burger_hero_picture {
@@ -400,6 +407,7 @@ footer {
     }
     .article_description_price {
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .price_basket {
@@ -423,6 +431,11 @@ footer {
     .article_picture {
         width: 100%;
         object-fit: cover;
+        height: 100px;
+    }
+
+    .category {
+        width: 100%;
     }
 
     .category_heading {
@@ -445,6 +458,24 @@ footer {
     .category_heading h2 {
         padding-left: 0;
         text-align: center;
-        font-size: 32px;
+        font-size: 18px;
+    }
+
+    .headline_item {
+        text-align: center;
+    }
+
+    .mobile_input {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+
+        position: sticky;
+        bottom: 0;
+        left: 0;
+
+        background: var(--basket_background);
+        height: 78px;
     }
 }
