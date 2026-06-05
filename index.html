@@ -39,12 +39,20 @@
         <div>Imprint</div>
         <div>Cookie Preferences</div>
     </footer>
-    <div class="mobile_input">
+    <div class="mobile_bar">
         <img src="./assets/icon/Home.png" alt="">
         <img src="./assets/icon/Profile.png" alt="">
         <img src="./assets/icon/orders.png" alt="">
-        <img src="./assets/icon/basket.png" alt="">
+        <img onclick="mobileBarBasket()" src="./assets/icon/basket.png" alt="">
     </div>
-    
+    <dialog id="basketDialog">
+        <div class="basket_dialog_inner">
+            <div class="basket_dialog_header">
+                <h2>Your Basket</h2>
+                <button class="basket_dialog_close" onclick="closeBasketDialog()">✕</button>
+            </div>
+            <div id="basketDialogContent" class="basket"></div>
+        </div>
+    </dialog>
     <script src="./script.js"></script>
 </html>

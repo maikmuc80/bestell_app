@@ -372,7 +372,50 @@ footer {
     opacity: 1;
 }
 
+#basketDialog {
+    width: 90%;
+    max-width: 500px;
+    border: none;
+    border-radius: 20px;
+    padding: 0;
+    background-color: var(--basket_background);
+    color: var(--category_color);
+}
 
+#basketDialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.basket_dialog_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+    font-family: 'Palanquin';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.basket_dialog_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basket_dialog_header h2 {
+    font-family: 'Palanquin';
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.basket_dialog_close {
+    background: none;
+    font-size: 24px;
+    line-height: 1;
+    padding: 0 8px;
+    cursor: pointer;
+}
 
 @media (max-width: 1400px) {
     .aside_basket {
@@ -465,7 +508,7 @@ footer {
         text-align: center;
     }
 
-    .mobile_input {
+    .mobile_bar {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -477,5 +520,9 @@ footer {
 
         background: var(--basket_background);
         height: 78px;
+    }
+
+    .mobile_bar img {
+        cursor: pointer;
     }
 }

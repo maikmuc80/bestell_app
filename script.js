@@ -112,6 +112,7 @@ const categoryIcons = {
 
 const basketRef = document.getElementById('basket');
 const DELIVERY_FEE = 4.99;
+const basketDialogRef = document.getElementById('basketDialog');
 
 function init(){
   renderCategory();
@@ -197,20 +198,13 @@ function templateArticleControl(item, index) {
 }
 
 function renderBasket() {
-    let articlesHtml = '';
-    let subtotal = 0;
-    for (let index = 0; index < menu.length; index++) {
-        const item = menu[index];
-        if (item.amount > 0) {
-            subtotal += item.price * item.amount;
-            articlesHtml += templateBasketArticle(item, index);
-        }
+    const html = buildBasketHtml();
+    basketRef.innerHTML = html;
+
+    const dialogContent = document.getElementById('basketDialogContent');
+    if (dialogContent) {
+        dialogContent.innerHTML = html;
     }
-    if (subtotal === 0) {
-        basketRef.innerHTML = templateBasketEmpty();
-        return;
-    }
-    basketRef.innerHTML = articlesHtml + templateBasketSummary(subtotal);
 }
 
 function templateBasketEmpty() {
@@ -220,10 +214,10 @@ function templateBasketEmpty() {
 function templateBasketArticle(item, index) {
     const lineTotal = item.price * item.amount;
     return `
-        <article class="article_basket">
+        <div class="article_basket">
             <div class="article_basket_description">
                 <h3>${item.name}</h3>
-                <button onclick="deleteItem(${index})"><img src="./assets/icon/delete.png" alt=""></button>
+                <p>${item.description}</p>
             </div>
             <div class="article_basket_price">
                 <div>
@@ -231,9 +225,9 @@ function templateBasketArticle(item, index) {
                     ${item.amount}
                     <button onclick="increase(${index})">+</button>
                 </div>
-                <div>${formatPrice(lineTotal)}</div>
+                <p>${formatPrice(lineTotal)}</p>
             </div>
-        </article>
+        </div>
     `;
 }
 
@@ -289,3 +283,35 @@ function showOrderMessage() {
     setTimeout(() => messageRef.classList.remove('show'), 3000);
 }
 
+function mobileBarBasket() {
+    document.getElementById('basketDialogContent').innerHTML = buildBasketHtml();
+    basketDialogRef.showModal();
+}
+
+function templateMobileBarBasket() {
+    return `
+        <dialog>
+            ${templateBasketArticle(item, index)};
+        </dialog>
+    `
+}
+
+function buildBasketHtml() {
+    let articlesHtml = '';
+    let subtotal = 0;
+    for (let index = 0; index < menu.length; index++) {
+        const item = menu[index];
+        if (item.amount > 0) {
+            subtotal += item.price * item.amount;
+            articlesHtml += templateBasketArticle(item, index);
+        }
+    }
+    if (subtotal === 0) {
+        return templateBasketEmpty();
+    }
+    return articlesHtml + templateBasketSummary(subtotal);
+}
+
+function closeBasketDialog() {
+    basketDialogRef.close();
+}
