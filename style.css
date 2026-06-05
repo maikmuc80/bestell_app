@@ -418,6 +418,64 @@ footer {
     padding: 0 8px;
     cursor: pointer;
 }
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-family: var(--font_category);
+}
+
+.stars {
+    display: inline-flex;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.star {
+    color: #d6d6d6;
+}
+
+.star.full {
+    color: var(--orange);
+}
+
+.star.half {
+    position: relative;
+    color: #d6d6d6;
+}
+
+.star.half::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--orange);
+}
+
+.rating_value {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.rating_count {
+    color: var(--product_color);
+    font-size: 16px;
+}
+
+.delivery_info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 12px;
+    font-family: var(--font_category);
+    font-size: 16px;
+    font-weight: 600;
+}
 
 @media (max-width: 1400px) {
     .aside_basket {
