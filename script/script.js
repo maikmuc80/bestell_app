@@ -73,7 +73,7 @@ function templateArticle(item, index) {
                 </div>
                 <div class="price_basket">
                     <p>${price} €</p>
-                    ${templateArticleControl(item, index)}
+                    <div id="control_${index}">${templateArticleControl(item, index)}</div>
                 </div>
             </div>
         </article>
@@ -91,6 +91,11 @@ function templateArticleControl(item, index) {
         `;
     }
     return `<button onclick="addToBasket(${index})">add to basket</button>`;
+}
+
+function updateArticleControl(index) {
+    const ref = document.getElementById(`control_${index}`);
+    ref.innerHTML = templateArticleControl(menu[index], index);
 }
 
 function renderBasket() {
@@ -150,7 +155,7 @@ function templateBasketSummary(subtotal) {
 
 function increase(index) {
     menu[index].amount++;
-    renderCategory();
+    updateArticleControl(index);
     renderBasket();
 }
 
@@ -158,19 +163,19 @@ function decrease(index) {
     if (menu[index].amount > 0) {
         menu[index].amount--;
     }
-    renderCategory();
+    updateArticleControl(index);
     renderBasket();
 }
 
 function deleteItem(index) {
     menu[index].amount = 0;
-    renderCategory();
+    updateArticleControl(index);
     renderBasket();
 }
 
 function addToBasket(index) {
     menu[index].amount++;
-    renderCategory();
+    updateArticleControl(index);
     renderBasket();
 }
 
