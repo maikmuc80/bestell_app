@@ -65,15 +65,18 @@
 }
 /* colors */
 main{
+    flex: 1;
     display: flex;
     flex-direction: column;
     padding-top: 100px;
+    padding-inline: max(calc(50% - 720px), 64px);
 }
 
 body{
     display: flex;
     flex-direction: column;
-    padding: 0px max(calc(50% - 720px), 64px);
+    padding: 0;
+    min-height: 100vh;
 }
 
 header {
@@ -88,6 +91,7 @@ nav{
     justify-content: space-between;
     height: 130px;
     background-color: var(--orange);
+    padding-inline: max(calc(50% - 720px), 64px);
 }
 
 button {
@@ -96,6 +100,12 @@ button {
     border-radius: 20px;
     border: 0;
     padding: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+button:hover{
+    background-color: var(--product_color);
 }
 
 .logo {
@@ -108,6 +118,10 @@ button {
     padding-right: 8px;
 }
 
+.mobile_bar {
+    display: none;
+}
+
 .header_picture {
     display: flex;
     flex-direction: column;
@@ -118,6 +132,7 @@ button {
     width: 100%;
     height: 400px;
     object-fit: cover;
+    padding-inline: max(calc(50% - 720px), 64px);
 }
 
 .burger_header {
@@ -353,6 +368,7 @@ footer {
     font-family: var(--font_category);
     font-weight: 400;
     font-size: 18px;
+    padding-inline: max(calc(50% - 720px), 64px);
 }
 .order_message {
     position: fixed;
