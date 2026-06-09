@@ -64,7 +64,7 @@
     --font_h1: 'Palanquin Dark';
 }
 /* colors */
-main{
+main {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ main{
     padding-inline: max(calc(50% - 720px), 64px);
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -84,7 +84,7 @@ header {
     flex-direction: column;
     height: 450px;
 }
-nav{
+nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -391,13 +391,14 @@ footer {
 }
 
 #basketDialog {
-    width: 90%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 700px;
     border: none;
     border-radius: 20px;
     padding: 0;
     background-color: var(--basket_background);
     color: var(--category_color);
+    margin: auto;
 }
 
 #basketDialog::backdrop {
