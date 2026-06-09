@@ -61,7 +61,10 @@
         <img src="./assets/icon/Home.png" alt="">
         <img src="./assets/icon/Profile.png" alt="">
         <img src="./assets/icon/orders.png" alt="">
-        <img onclick="mobileBarBasket()" src="./assets/icon/basket.png" alt="">
+        <div class="mobile_basket_icon" onclick="mobileBarBasket()">
+            <img src="./assets/icon/basket.png" alt="Warenkorb">
+            <span id="basketBadge" class="basket_badge">0</span>
+        </div>
     </div>
     <dialog id="basketDialog">
         <div class="basket_dialog_inner">

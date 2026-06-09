@@ -106,6 +106,8 @@ function renderBasket() {
     if (dialogContent) {
         dialogContent.innerHTML = html;
     }
+
+    updateBasketBadge();
 }
 
 function templateBasketEmpty() {
@@ -216,4 +218,14 @@ function buildBasketHtml() {
 
 function closeBasketDialog() {
     basketDialogRef.close();
+}
+
+function updateBasketBadge() {
+    let count = 0;
+    for (let index = 0; index < menu.length; index++) {
+        count += menu[index].amount;
+    }
+    const badgeRef = document.getElementById('basketBadge');
+    badgeRef.textContent = count;
+    badgeRef.classList.toggle('hidden', count === 0);
 }

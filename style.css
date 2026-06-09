@@ -603,3 +603,30 @@ footer {
         cursor: pointer;
     }
 }
+
+.mobile_basket_icon {
+    position: relative;
+    cursor: pointer;
+}
+
+.basket_badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 50%;
+    background-color: var(--orange);
+    color: var(--category_color);
+    font-family: 'Palanquin';
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket_badge.hidden {
+    display: none;
+}
